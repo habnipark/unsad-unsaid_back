@@ -1,0 +1,16 @@
+{
+  "name": "unsad-unsaid-back",
+  "version": "1.0.0",
+  "description": "Backend for unsad unsaid service",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "openai": "^3.0.0"
+  }
+}
