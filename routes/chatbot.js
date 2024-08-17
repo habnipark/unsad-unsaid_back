@@ -3,8 +3,6 @@ const OpenAI = require('openai');
 const { systemPrompt } = require('../prompt.js');
 const { apiKey } = require('../app.js');
 
-console.log(apiKey);
-
 const router = express.Router();
 const openai = new OpenAI({
     apiKey: apiKey
@@ -12,7 +10,7 @@ const openai = new OpenAI({
 
 router.post('/message', async (req, res) => {
     const userInput = req.body.message;
-    console.log('Received user input:', userInput); // 입력 로그
+    // console.log('Received user input:', userInput); // 입력 로그
 
     const promptWithUserInput = `${systemPrompt}\n입력: "${userInput}"\n응답:`;
 
@@ -27,7 +25,7 @@ router.post('/message', async (req, res) => {
         });
 
         // OpenAI API로부터 받은 응답
-        console.log(completion.choices[0]);
+        // console.log(completion.choices[0]);
         let botResponse = completion.choices[0].message.content.trim();
 
         // 응답에서 따옴표 제거
@@ -35,7 +33,7 @@ router.post('/message', async (req, res) => {
             botResponse = botResponse.slice(1, -1);
         }
 
-        console.log('OpenAI API response:', botResponse); // 응답 로그
+        // console.log('OpenAI API response:', botResponse); // 응답 로그
         res.json({ response: botResponse });
     } catch (error) {
         console.error('Error with OpenAI API:', error);
