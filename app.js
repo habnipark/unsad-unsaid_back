@@ -4,11 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const chatbotRoutes = require('./routes/chatbot.js');
 
-const frontUrl = `http://127.0.0.1:5500`;
-
 // .env 파일의 환경 변수를 로드합니다.
 dotenv.config();
 const apiKey = process.env.OPENAI_API_KEY;
+const frontUrl = process.env.FRONT_URL;
 
 console.log('app', apiKey);
 
